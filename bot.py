@@ -1,29 +1,34 @@
 import os
 import discord
+from discord import commands
+from discord import SlashCommandGroup
 import openai
 from dotenv import load_dotenv
+
 
 load_dotenv()
 
 TOKEN = os.getenv('DISCORD_TOKEN')
 OPENAI_KEY = os.getenv('OPENAI_KEY')
 
-openai.api_key = OPENAI_KEY
 
-intents = discord.Intents.all()
-client = discord.Client(command_prefix='!', intents=intents)
+bot = discord.Bot()
 
-@client.event
-async def on_message(message):
-  if message.author == client.user:
-    return
+
+# greetings - says hi and bye to you when pinged
+@bot.command(description="Says hello to you!") #add time of day commands
+async def hello(ctx):
+    await ctx.respond(f'''Hello {ctx.author}! Good to see ya!''')
     
-    response = openai.Completion.create(
-    engine="text-davinci-002",
-    prompt=f"{message.content}",
-    max_tokens=2048,
-    temperature=0.5,
-    )
-   await message.channel.send(response.choices[0].text)
+@bot.command(description="Says goodbye to you!")
+async def goodbye(ctx):
+    await ctx.respond(f'''Goodbye {ctx.author}! Talk to you later!''')
 
-client.run("YOUR_DISCORD_BOT_TOKEN")
+# cloud commands - will record data and run code (either natively or on cloud, research required)
+
+# basic commands - basic commands all bots should have!
+@bot.command(description="Sends the bot's latency.")
+async def ping(ctx):
+    await ctx.respond(f"Pong! Latency is {bot.latency}")
+
+bot.run(TOKEN)
