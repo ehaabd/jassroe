@@ -2,7 +2,23 @@
     "965360340374261790": {
         "reference": [
             "https://www.tomshardware.com/how-to/dual-boot-linux-and-windows-11",
-            "https://arxiv.org/pdf/2305.07759.pdf"
+            "https://arxiv.org/pdf/2305.07759.pdf",
+            "https://www.vexforum.com/t/frc-or-vrc/17602",
+            "https://www.geeksforgeeks.org/python-web-scraping-tutorial/",
+            "https://www.youtube.com/watch?v=9m4Hf_6U4Rc"
+        ],
+        "gaming": [
+            "https://zeldamaps.com/?game=TotK&map=2102&subMap=2102&zoom=4&x=1762&y=373#account",
+            "https://www.latecnosfera.com/2023/05/list-all-139-side-quests-zelda-totk.html",
+            "https://bloodorca.github.io/hollow/",
+            "https://valheim-map.world/?seed=2GZwCYANzQ&offset=-2646%2C-864&zoom=0.118&view=0&ver=0.212.7",
+            "https://www.youtube.com/watch?v=wXoLlQX0dNg",
+            "https://www.youtube.com/watch?v=f8bv_aX8cQs",
+            "https://mapgenie.io/halo-infinite/maps/zeta-halo"
+        ],
+        "pycord": [
+            "https://guide.pycord.dev/introduction",
+            "https://discord.com/developers/applications/1111102247716257903/information"
         ]
     }
 }

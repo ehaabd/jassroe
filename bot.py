@@ -5,7 +5,7 @@ from discord import SlashCommandGroup
 import openai
 from dotenv import load_dotenv
 import json
-import asyncio
+import web_scraper as ws
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -74,10 +74,11 @@ async def remind(ctx):
     dataOutput = '\n'.join(dataList)
     await ctx.respond(f'''Your logged categories are: \n{dataOutput}''')
     
-@bot.command(description='Will run your script in the inputted language! Currently only supports Python 3.11.1')
-    
 # ai commands - will save data to certain categories and call llm's for those categories
-
+@bot.command(description="Will return the text of a website to you")
+async def find_text(ctx, url:str):
+    await ctx.respond(f'''The infromation in {url} is below: \n
+           {ws.readMainText(url)}''')
 
 # basic commands - basic commands all bots should have!
 @bot.command(description="Sends the bot's latency.")
