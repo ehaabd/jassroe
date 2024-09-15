@@ -4,7 +4,6 @@ from discord.ext import commands
 import random
 import datetime
 import asyncio
-import openai
 from dotenv import load_dotenv
 import json
 import web_scraper as ws
@@ -36,6 +35,12 @@ def saveData():
 async def clear(ctx):
     await ctx.channel.purge()
     await ctx.send(f'''Remember to keep bot interactions to this channel only!''')
+    await bot.tree.sync()
+
+@bot.hybrid_command(description="Save all data from this channel to a category.")
+async def scribe(ctx):
+    messages = [message async for message in channel.history(limit=128)]
+    await ctx.send(messages)
     await bot.tree.sync()
 
 @bot.hybrid_command(description="Says hello to you!") #add time of day commands
